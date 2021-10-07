@@ -20,7 +20,7 @@ while text_input != '':
 
     fullName = text_input.split()
 
-    eman_desrever = reverse_name(fullname)
+    eman_desrever = reverse_name(fullName)
 
     for eman in eman_desrever:
         print(eman + ' ', end='')
