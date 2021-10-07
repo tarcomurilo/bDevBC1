@@ -10,8 +10,8 @@ def reverse_name(name):
 
 text_input = ''
 
-while text_input != '':
-    print(f'Write your full name or enter to exit:')
+while text_input != '0':
+    print(f'Write your full name or type \'0\' to exit:')
     
     text_input = input(f'> ')
     
@@ -24,3 +24,5 @@ while text_input != '':
 
     for eman in eman_desrever:
         print(eman + ' ', end='')
+    
+    print('') #start again
