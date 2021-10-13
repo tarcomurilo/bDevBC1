@@ -1,11 +1,12 @@
-#08 Write a Python function to remove an item from a tuple.
+# 08 Write a Python function to remove an item from a tuple.
 
-def remByPos(tuples, pos = 0):
+def remByPos(tuples, pos=0):
     lista = list(tuples)
 
     lista.pop(pos)
 
     return tuple(lista)
+
 
 def remByItem(tuples, item):
     lista = list(tuples)
@@ -13,6 +14,7 @@ def remByItem(tuples, item):
     lista.remove(item)
 
     return tuple(lista)
+
 
 tuples = tuple(['a', 'b', '1', 'b', 'c'])
 

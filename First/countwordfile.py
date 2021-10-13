@@ -1,4 +1,4 @@
-#5 Write a Python program to count the frequency of words in a text file.
+# 5 Write a Python program to count the frequency of words in a text file.
 import re
 
 print('Type the name of the text file: ')
@@ -25,6 +25,3 @@ text_set = set(text)
 
 for word in text_set:
     print(f'{word}: {text.count(word)}')
-
-
-

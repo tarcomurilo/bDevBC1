@@ -1,4 +1,4 @@
-#04 Write a Python program to count the number of lines in a text file.
+# 04 Write a Python program to count the number of lines in a text file.
 
 print('Type the name of the text file: ')
 filename = input('> ')
@@ -9,7 +9,7 @@ except:
     print('File do not exist!')
     exit()
 
-text = [] 
+text = []
 
 for line in file:
     text.append(line)
