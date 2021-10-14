@@ -7,6 +7,11 @@ print('Write your birthdate (mm/dd/yyyy):')
 
 bdate = input('> ')
 
+today = datetime.date.today()
+someday = datetime.date(1986, 9, 4)
+
+print(today - someday)
+
 now_day = datetime.datetime.now().day
 now_month = datetime.datetime.now().month
 now_year = datetime.datetime.now().year
@@ -22,7 +27,6 @@ else:
     years = now_year - bdate_year
     months = now_month - bdate_month
 
-
 if bdate_day > now_day:
     if (now_month == 1) or (now_month == 3) or (now_month == 5) or (now_month == 7) or (now_month == 8) or (now_month == 10) or (now_month == 12):
         days = 31 - (bdate_day - now_day)
@@ -35,5 +39,7 @@ if bdate_day > now_day:
         days = 30 - (bdate_day - now_day)
 else:
     days = now_day - bdate_day
+
+
 
 print("You have ", years, "years, ", months,"months and ", days, "days")

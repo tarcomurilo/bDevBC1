@@ -12,6 +12,7 @@ lista = list(data)
 lista.sort()
 
 newDict = {}
+
 for item in lista:
     newDict[item] = data[item]
 
