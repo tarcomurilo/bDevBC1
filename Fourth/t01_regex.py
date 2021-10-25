@@ -10,7 +10,3 @@ def searchRegex(string):
       match = ''
       return ''
 
-string = "aBcdeb_ghIjk_jkk_Op_o"
-
-for item in searchRegex(string):
-   print(item)

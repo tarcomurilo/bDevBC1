@@ -7,23 +7,23 @@ os.chdir('.\\Fourth\\')
 
 from t01_regex import searchRegex
 
-def decor(*args):
-    
-    def isInRegex(*args):
-        for item in args:
-            if searchRegex(item) != item:
-                return False
+def decor(func):
+    retarg = []
+    def capsule(*val):
+        for item in val:
+            if func(item) == []:
+                pass
             else:
-                return True
-    
-    if isInRegex(args):
-        return 
+                retarg.append(item)
+
+    return capsule
+
 
 @decor
 def myFunc(*args):
     for item in args:
-        print(item)
+    return searchRegex(args)
 
-lista = ['a_b', 'b_a']
+lista = ['a_b', 'b_a', "B_a"]
 
-myFunc(*lista)
+print(myFunc(*lista))

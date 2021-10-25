@@ -12,7 +12,7 @@ dados = getdata(url)
 print(dados[0])
 
 hostName = "localhost"
-serverPort = 8003
+serverPort = 8004
 
 class Server(BaseHTTPRequestHandler):
     def do_GET(self):

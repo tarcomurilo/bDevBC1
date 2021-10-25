@@ -9,5 +9,6 @@ dados = json.loads(req.text)
 
 print(f'Printing {url}')
 for dado in dados:
-    print(dado)
+    if dado["completed"]==True:
+        print(dado)
 
