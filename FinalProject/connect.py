@@ -23,16 +23,15 @@ decBase = declarative_base()
 class News(decBase):  # class to create a table
     __tablename__ = 'news'
 
-    id = Column('id', Integer, primary_key=True)
+    id = Column('id', Integer, primary_key=True, autoincrement=True)
     title = Column('title', String)
     summary = Column('summary', String)
     clicks = Column('clicks', Integer)
     url = Column('url', String, unique=True)
 
 
-def addNewsRow(id, title, summary, url):
+def addNewsRow(title, summary, url):
     news = News()
-    news.id = id
     news.title = title
     news.summary = summary
     news.clicks = 0
@@ -55,17 +54,11 @@ def aggregator():
         for article in articles:
             session = Session()
 
-            news = session.query(News).all()
-            lastId = -1
-            for id in news:
-                if id.id >= lastId:
-                    lastId = id.id + 1
-
             inTitle = article.get("title")
             inSum = article.get("description")
             inUrl = article.get("link")
             try:
-                session.add(addNewsRow(lastId, inTitle, inSum, inUrl))
+                session.add(addNewsRow(inTitle, inSum, inUrl))
                 session.commit()
             except:
                 pass
@@ -87,17 +80,11 @@ def aggregator():
             # try
             session = Session()
 
-            news = session.query(News).all()
-            lastId = -1
-            for id in news:
-                if id.id >= lastId:
-                    lastId = id.id + 1
-
             inTitle = title.text
             inSum = title.text
             inUrl = link.get('href')
             try:
-                session.add(addNewsRow(lastId, inTitle, inSum, inUrl))
+                session.add(addNewsRow(inTitle, inSum, inUrl))
                 session.commit()
             except:
                 pass
@@ -109,14 +96,14 @@ def aggregator():
     # catchRSS(FEEDURL)
     FEEDURL = "https://www.inovacaotecnologica.com.br/boletim/rss.xml"
     catchRSS(FEEDURL)
-    #FEEDURL = "https://www.theverge.com/rss/index.xml"
-    # catchRSS(FEEDURL)
-    #FEEDURL = "https://techcrunch.com/feed/"
-    # catchRSS(FEEDURL)
-    #FEEDURL = "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml"
-    # catchRSS(FEEDURL)
-    #FEEDURL = "https://mashable.com/feeds/rss/all"
-    # catchRSS(FEEDURL)
+    FEEDURL = "https://www.theverge.com/rss/index.xml"
+    catchRSS(FEEDURL)
+    FEEDURL = "https://techcrunch.com/feed/"
+    catchRSS(FEEDURL)
+    FEEDURL = "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml"
+    catchRSS(FEEDURL)
+    FEEDURL = "https://mashable.com/feeds/rss/all"
+    catchRSS(FEEDURL)
     HTMLURL = 'https://www.uol.com.br/tilt/'
     catchHTML(HTMLURL)
 
